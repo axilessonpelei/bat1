@@ -7,7 +7,7 @@ class Services{
     contract = new this.web3.eth.Contract(abi, this.contractAddress)
     wallet =''
 
-//создание недвижимости
+//создание pool
     async createPool (tokenA, tokenB, _reserveA, _reserveB){
         try{
             return await this.contract.methods.createPool(tokenA, tokenB, _reserveA, _reserveB).send({from: this.wallet})
@@ -16,6 +16,13 @@ class Services{
         }
     }
 
+    async getPools() {
+        try {
+            return await this.contract.methods.getPools().call();
+        } catch (error) {
+            console.error(error.message);
+        }
+    }
 
 }
 export default new Services();

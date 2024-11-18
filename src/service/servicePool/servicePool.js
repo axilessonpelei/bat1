@@ -10,7 +10,7 @@ class Services{
 // обмен токенов
     async swap (){
         try{
-            return await this.contract.methods.swap().send({from: this.wallet})
+            return await this.contract.methods.swap(fromAtoBToken,  _amount).send({from: this.wallet})
         } catch(error){
             console.log(error.message)
         }
@@ -21,6 +21,14 @@ class Services{
             return await this.contract.methods.addLiquidity(_amount, _transferA).send({from: this.wallet})
         } catch(error){
             console.log(error.message)
+        }
+    }
+
+    async getInfo() {
+        try {
+            return await this.contract.methods.getInfo().call();
+        } catch (error) {
+            console.error(error.message);
         }
     }
 

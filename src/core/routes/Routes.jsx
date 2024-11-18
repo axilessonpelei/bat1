@@ -1,21 +1,11 @@
-import {Main} from "../../ui/pages/home/Main.jsx";
 import { createBrowserRouter} from "react-router-dom";
 import {Staking} from "../../ui/pages/staking/Staking.jsx";
-import {Pool} from "../../ui/pages/pool/Pool.jsx";
 import {Factory} from "../../ui/pages/factory/Factory.jsx";
 import {Router} from "../../ui/pages/router/Router.jsx";
 import {Layout} from "../../ui/component/HOCs/Layout.jsx";
+import {Pool} from "../../ui/pages/pool/Pool.jsx";
 
 const routes = [
-    {
-        path: "/",
-        element: <Main />,
-    },
-
-    {
-        path: "/pool",
-        element: <Pool />,
-    },
     {
         path: "/factory",
         element: <Factory />,
@@ -26,8 +16,12 @@ const routes = [
     },
 
     {
-        path: "/staking",
+        path: "/",
         element: <Staking/>,
+    },
+    {
+        path: "/pool" ,
+        element: <Pool/>,
     }
 ]
 
