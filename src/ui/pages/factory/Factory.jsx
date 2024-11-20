@@ -30,6 +30,10 @@ export const Factory = () => {
     // добавить Pool
     const addPool = async (e) => {
         e.preventDefault();
+        const tokenA = e.target[0].value;
+        const tokenB = e.target[1].value;
+        const _reserveA = e.target[2].value;
+        const _reserveB = e.target[3].value;
         await ServiceFactory.createPool(tokenA, tokenB, _reserveA, _reserveB);  // Отправляем запрос на создание залога
         await getPools();
     };
@@ -41,7 +45,7 @@ export const Factory = () => {
                 <form onSubmit={addPool}>
                     <label> token А </label>
                     <input
-                        type="number"
+                        type="text"
                         className="form-control"
                         value={tokenA}
                         onChange={(e) => setTokenA(e.target.value)}
@@ -49,7 +53,7 @@ export const Factory = () => {
                     />
                     <label> token B </label>
                     <input
-                        type="number"
+                        type="text"
                         className="form-control"
                         value={tokenB}
                         onChange={(e) => setTokenB(e.target.value)}

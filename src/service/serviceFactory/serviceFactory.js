@@ -3,7 +3,7 @@ import abi from "./abi";
 
 class Services{
     web3 = new Web3(window.ethereum)
-    contractAddress = '0xdC8718a41AA2bD3021447cA0a1dEC0A82F0CD1B1'
+    contractAddress = '0x06feca63610e84462CBaABDd20906EB46EC0135F'
     contract = new this.web3.eth.Contract(abi, this.contractAddress)
     wallet =''
 
