@@ -18,10 +18,6 @@ const routes = [
     {
         path: "/",
         element: <Staking/>,
-    },
-    {
-        path: "/pool" ,
-        element: <Pool/>,
     }
 ]
 

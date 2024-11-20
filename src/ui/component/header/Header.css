@@ -21,6 +21,12 @@
     color: #ffffff;
     align-items: center;
 }
+.swap{
+    display: flex;
+    justify-content: space-between;
+    background-color: #6729ec;
+    border-radius: 10px;
+}
 
 .cc {
     padding: 5px;

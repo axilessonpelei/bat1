@@ -73,7 +73,7 @@ export const Factory = () => {
                     />
                     <button type="submit" className="btn btn-primary">создать pool</button>
                 </form>
-                <div>
+                <div >
                     {pools.map((pool, index) => (
                         <div key={index} className="col-md-4 mb-4">
 

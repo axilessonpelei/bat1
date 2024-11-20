@@ -16,9 +16,7 @@ const Header = () => {
                 <h1 onClick={handler}>alelua</h1>
                 <Link to='/router' className='cc'> router</Link>
                 <Link to='/factory' className='cc'> factory</Link>
-                <Link to='/' className='cc'> staking</Link>
-                <Link to='/pool' className='cc'> pool</Link>
-            </div>
+                <Link to='/' className='cc'> staking</Link></div>
         </header>
     );
 };

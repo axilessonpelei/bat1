@@ -35,49 +35,7 @@ export const Pool = () => {
 
     return (
         <>
-            <div className="container">
-                <h2>swap</h2>
-                <form onSubmit={swap}>
-                    <label>fromAtoBToken</label>
-                    <input
-                        type="bool"
-                        className="form-control"
-                        value={fromAtoBtoken}
-                        onChange={(e) => setFromAtoBtoken(e.target.value)}
-                        required
-                    />
-                    <label>amount</label>
-                    <input
-                        type="number"
-                        className="form-control"
-                        value={_amount}
-                        onChange={(e) => setAmount(e.target.value)}
-                        required
-                    />
-                    <button type="submit" className="btn btn-primary">swap</button>
-                </form>
-                <h2>addLiquidity</h2>
-                <form onSubmit={addLiquidity}>
-                    <label> amount </label>
-                    <input
-                        type="number"
-                        className="form-control"
-                        value={_amount}
-                        onChange={(e) => setAmount(e.target.value)}
-                        required
-                    />
-                    <label>transferA</label>
-                    <input
-                        type="bool"
-                        className="form-control"
-                        value={_transferA}
-                        onChange={(e) => setTransferA(e.target.value)}
-                        required
-                    />
-                    <p></p>
-                    <button type="submit" className="btn btn-primary">addLiquidity</button>
-                </form>
-                <div>
+            <div>
                     {poolinfo.map((poolinfo, index) => (
                         <div key={index} className="col-md-4 mb-4">
                             <div className="card">
@@ -85,18 +43,59 @@ export const Pool = () => {
                                     <p className="card-title"> TokenA: {poolinfo.nameA.toString()}</p>
                                     <p className="card-text"> TokenB: {poolinfo.nameB.toString()} </p>
                                     <p className="card-text"> Общая стоимость:
-                                        {poolinfo.priceA} * {poolinfo.amountA} + {poolinfo.priceB} * {poolinfo.amountB}</p>
+                                        {poolinfo.priceA * poolinfo.amountA + poolinfo.priceB * poolinfo.amountB}</p>
                                     <p className="card-text"> отношение в криптовалюте:
-                                        {poolinfo.priceA} * {poolinfo.amountA} : {poolinfo.price} * {poolinfo.amountB}</p>
+                                        {poolinfo.priceA * poolinfo.amountA} : {poolinfo.price * poolinfo.amountB}</p>
                                     <p className="card-text"> отношение в токенах:
                                         {poolinfo.amountA} : {poolinfo.amountB}</p>
+                                <div className='swap'>
+                                <h2>addLiquidity</h2>
+                                <form onSubmit={addLiquidity}>
+                                    <label> amount </label>
+                                    <input
+                                        type="number"
+                                        className="form-control"
+                                        value={_amount}
+                                        onChange={(e) => setAmount(e.target.value)}
+                                        required
+                                    />
+                                    <label>transferA</label>
+                                    <input
+                                        type="bool"
+                                        className="form-control"
+                                        value={_transferA}
+                                        onChange={(e) => setTransferA(e.target.value)}
+                                        required
+                                    />
+                                    <p></p>
+                                    <button type="submit" className="btn btn-primary">addLiquidity</button>
+                                </form>
+                                <h2>swap</h2>
+                                <form onSubmit={swap}>
+                                    <label>fromAtoBToken</label>
+                                    <input
+                                        type="bool"
+                                        className="form-control"
+                                        value={fromAtoBtoken}
+                                        onChange={(e) => setFromAtoBtoken(e.target.value)}
+                                        required
+                                    />
+                                    <label>amount</label>
+                                    <input
+                                        type="number"
+                                        className="form-control"
+                                        value={_amount}
+                                        onChange={(e) => setAmount(e.target.value)}
+                                        required
+                                    />
+                                    <button type="submit" className="btn btn-primary">swap</button>
+                                </form>
                                 </div>
                             </div>
                         </div>
+                        </div>
                     ))}
-                </div>
             </div>
-
         </>
     )
 }
