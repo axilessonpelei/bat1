@@ -5,12 +5,12 @@ export const Pool = () => {
     const[_amount, setAmount] = useState(0);
     const [_transferA,setTransferA] = useState();
     const[fromAtoBtoken, setFromAtoBtoken] = useState();
-    const[poolinfo,setPoolinfo] = useState([]);
+    const[poolInfo,setPoolInfo] = useState([]);
 
-    const getInfo = async () => {
+    const getTokenInfo = async () => {
         const userPool = await servicePool.getInfo();
         if (userPool) {
-            setPoolinfo(userPool);
+            setPoolInfo(userPool);
             console.log(userPool);
         }
 
@@ -18,7 +18,7 @@ export const Pool = () => {
 
     useEffect(() => {
         (async () => {
-            await getInfo();
+            await getTokenInfo();
         })();
     }, []);
 
@@ -36,18 +36,18 @@ export const Pool = () => {
     return (
         <>
             <div>
-                    {poolinfo.map((poolinfo, index) => (
+                    {poolInfo.map((pool, index) => (
                         <div key={index} className="col-md-4 mb-4">
                             <div className="card">
                                 <div className="card-body">
-                                    <p className="card-title"> TokenA: {poolinfo.nameA.toString()}</p>
-                                    <p className="card-text"> TokenB: {poolinfo.nameB.toString()} </p>
+                                    <p className="card-title"> TokenA: {pool.nameA.toString()}</p>
+                                    <p className="card-text"> TokenB: {pool.nameB.toString()} </p>
                                     <p className="card-text"> Общая стоимость:
-                                        {poolinfo.priceA * poolinfo.amountA + poolinfo.priceB * poolinfo.amountB}</p>
+                                        {pool.priceA * pool.amountA + pool.priceB * pool.amountB}</p>
                                     <p className="card-text"> отношение в криптовалюте:
-                                        {poolinfo.priceA * poolinfo.amountA} : {poolinfo.price * poolinfo.amountB}</p>
+                                        {pool.priceA * pool.amountA} : {pool.price * pool.amountB}</p>
                                     <p className="card-text"> отношение в токенах:
-                                        {poolinfo.amountA} : {poolinfo.amountB}</p>
+                                        {pool.amountA} : {pool.amountB}</p>
                                 <div className='swap'>
                                 <h2>addLiquidity</h2>
                                 <form onSubmit={addLiquidity}>

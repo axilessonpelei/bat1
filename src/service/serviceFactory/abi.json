@@ -2,21 +2,18 @@
   {
     "inputs": [
       {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "name": "allPools",
-    "outputs": [
+        "internalType": "address",
+        "name": "_staking",
+        "type": "address"
+      },
       {
         "internalType": "address",
-        "name": "",
+        "name": "_lpToken",
         "type": "address"
       }
     ],
-    "stateMutability": "view",
-    "type": "function"
+    "stateMutability": "nonpayable",
+    "type": "constructor"
   },
   {
     "inputs": [
@@ -32,40 +29,55 @@
       },
       {
         "internalType": "uint256",
-        "name": "_reserveA",
+        "name": "reserveA",
         "type": "uint256"
       },
       {
         "internalType": "uint256",
-        "name": "_reserveB",
+        "name": "reserveB",
         "type": "uint256"
       }
     ],
     "name": "createPool",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getPools",
     "outputs": [
       {
-        "internalType": "address",
-        "name": "pool",
+        "internalType": "address[]",
+        "name": "",
+        "type": "address[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "lpToken",
+    "outputs": [
+      {
+        "internalType": "contract LPToken",
+        "name": "",
         "type": "address"
       }
     ],
-    "stateMutability": "nonpayable",
+    "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
       {
-        "internalType": "address",
+        "internalType": "uint256",
         "name": "",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
+        "type": "uint256"
       }
     ],
-    "name": "getPool",
+    "name": "poolAddress",
     "outputs": [
       {
         "internalType": "address",
@@ -78,12 +90,12 @@
   },
   {
     "inputs": [],
-    "name": "getPools",
+    "name": "staking",
     "outputs": [
       {
-        "internalType": "address[]",
+        "internalType": "contract Staking",
         "name": "",
-        "type": "address[]"
+        "type": "address"
       }
     ],
     "stateMutability": "view",

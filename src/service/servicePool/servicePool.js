@@ -3,14 +3,14 @@ import abi from "./abi";
 
 class Services{
     web3 = new Web3(window.ethereum)
-    contractAddress = '0xdC8718a41AA2bD3021447cA0a1dEC0A82F0CD1B1'
+    contractAddress = '0xd584564Db3b56466b3282a7d9cB654142517eb3B'
     contract = new this.web3.eth.Contract(abi, this.contractAddress)
     wallet =''
 
 // обмен токенов
-    async swap (){
+    async swap (fromAtoBToken, _amount){
         try{
-            return await this.contract.methods.swap(fromAtoBToken,  _amount).send({from: this.wallet})
+            return await this.contract.methods.swap(fromAtoBToken, _amount).send({from: this.wallet})
         } catch(error){
             console.log(error.message)
         }
@@ -24,9 +24,9 @@ class Services{
         }
     }
 
-    async getInfo() {
+    async getTokenInfo() {
         try {
-            return await this.contract.methods.getInfo().call();
+            return await this.contract.methods.getTokenInfo().call();
         } catch (error) {
             console.error(error.message);
         }

@@ -2,17 +2,17 @@ import {Web3} from "web3";
 import abi from "./abi";
 
 class Services{
-    web3 = new Web3(window.ethereum)
-    contractAddress = '0x06feca63610e84462CBaABDd20906EB46EC0135F'
-    contract = new this.web3.eth.Contract(abi, this.contractAddress)
-    wallet =''
+    web3 = new Web3(window.ethereum);
+    contractAddress = '0x4d24DE2C6a4b8c0cEFd142669840907B99A79436';
+    contract = new this.web3.eth.Contract(abi, this.contractAddress);
+    wallet = '';
 
 //создание pool
-    async createPool (tokenA, tokenB, _reserveA, _reserveB){
+    async createPool (tokenA, tokenB, reserveA, reserveB){
         try{
-            return await this.contract.methods.createPool(tokenA, tokenB, _reserveA, _reserveB).send({from: this.wallet})
+            return await this.contract.methods.createPool(tokenA, tokenB, reserveA, reserveB).send({from: this.wallet});
         } catch(error){
-            console.log(error.message)
+            console.log(error.message);
         }
     }
 
@@ -23,6 +23,5 @@ class Services{
             console.error(error.message);
         }
     }
-
 }
 export default new Services();

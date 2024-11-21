@@ -3,41 +3,41 @@ import {useState} from "react";
 
 
 export const Router = () => {
-    const[tokenA, setTokenA] = useState("");
-    const [tokenB, setTokenB] = useState("");
-    const[amount, setAmount] = useState("");
+    const[inputToken, setInputToken] = useState("");
+    const [outputToken, setOutputToken] = useState("");
+    const[amountin, setAmountin] = useState("");
 
-    const swap = async (e) => {
+    const trade = async (e) => {
         e.preventDefault();
-        await serviceRouter.swap(tokenA,  tokenB,  amount);};
+        await serviceRouter.swap(inputToken,  outputToken,  amountin);};
 
     return (
         <>
             <div className="container">
                 <h2>router swap</h2>
-                <form onSubmit={swap}>
+                <form onSubmit={trade}>
                     <label> токен А </label>
                     <input
                         type="number"
                         className="form-control"
-                        value={tokenA}
-                        onChange={(e) => setTokenA(e.target.value)}
+                        value={inputToken}
+                        onChange={(e) => setInputToken(e.target.value)}
                         required
                     />
                     <label> токен B </label>
                     <input
                         type="number"
                         className="form-control"
-                        value={tokenB}
-                        onChange={(e) => setTokenB(e.target.value)}
+                        value={outputToken}
+                        onChange={(e) => setOutputToken(e.target.value)}
                         required
                     />
                     <label> колличество токенов </label>
                     <input
                         type="number"
                         className="form-control"
-                        value={amount}
-                        onChange={(e) => setAmount(e.target.value)}
+                        value={amountin}
+                        onChange={(e) => setAmountin(e.target.value)}
                         required
                     />
                     <button type="submit" className="btn btn-primary">обменять токены</button>

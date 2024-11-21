@@ -8,8 +8,8 @@ import serviceFactory from "../../../service/serviceFactory/serviceFactory.js";
 export const Factory = () => {
     const[tokenA, setTokenA] = useState("");
     const [tokenB, setTokenB] = useState("");
-    const[_reserveA, setReserveA] = useState("");
-    const[_reserveB, setReserveB] = useState("");
+    const[reserveA, setReserveA] = useState("");
+    const[reserveB, setReserveB] = useState("");
     const [pools, setPools] = useState([]);
 
     const getPools = async () => {
@@ -32,9 +32,9 @@ export const Factory = () => {
         e.preventDefault();
         const tokenA = e.target[0].value;
         const tokenB = e.target[1].value;
-        const _reserveA = e.target[2].value;
-        const _reserveB = e.target[3].value;
-        await ServiceFactory.createPool(tokenA, tokenB, _reserveA, _reserveB);  // Отправляем запрос на создание залога
+        const reserveA = e.target[2].value;
+        const reserveB = e.target[3].value;
+        await ServiceFactory.createPool(tokenA, tokenB, reserveA, reserveB);  // Отправляем запрос на создание залога
         await getPools();
     };
 
@@ -63,7 +63,7 @@ export const Factory = () => {
                     <input
                         type="number"
                         className="form-control"
-                        value={_reserveA}
+                        value={reserveA}
                         onChange={(e) => setReserveA(e.target.value)}
                         required
                     />
@@ -71,13 +71,13 @@ export const Factory = () => {
                     <input
                         type="number"
                         className="form-control"
-                        value={_reserveB}
+                        value={reserveB}
                         onChange={(e) => setReserveB(e.target.value)}
                         required
                     />
                     <button type="submit" className="btn btn-primary">создать pool</button>
                 </form>
-                <div >
+                <div>
                     {pools.map((pool, index) => (
                         <div key={index} className="col-md-4 mb-4">
 
