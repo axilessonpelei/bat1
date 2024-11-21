@@ -13,19 +13,19 @@
   {
     "inputs": [
       {
-        "internalType": "address",
-        "name": "inputToken",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "outputToken",
-        "type": "address"
-      },
-      {
         "internalType": "uint256",
-        "name": "amountIn",
+        "name": "demand",
         "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "demandToken",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "supplyToken",
+        "type": "address"
       }
     ],
     "name": "trade",

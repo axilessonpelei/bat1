@@ -28,11 +28,6 @@
       },
       {
         "internalType": "address",
-        "name": "_staking",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
         "name": "_lpToken",
         "type": "address"
       }
@@ -68,19 +63,9 @@
         "type": "address"
       },
       {
-        "internalType": "uint256",
-        "name": "_priceA",
-        "type": "uint256"
-      },
-      {
         "internalType": "address",
         "name": "_tokenB",
         "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_priceB",
-        "type": "uint256"
       }
     ],
     "stateMutability": "view",
@@ -151,25 +136,6 @@
     "type": "function"
   },
   {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "token",
-        "type": "address"
-      }
-    ],
-    "name": "getTokenName",
-    "outputs": [
-      {
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
     "inputs": [],
     "name": "lpToken",
     "outputs": [
@@ -196,19 +162,6 @@
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "staking",
-    "outputs": [
-      {
-        "internalType": "contract Staking",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
     "inputs": [
       {
         "internalType": "bool",
@@ -222,7 +175,13 @@
       }
     ],
     "name": "swap",
-    "outputs": [],
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
     "stateMutability": "nonpayable",
     "type": "function"
   },
